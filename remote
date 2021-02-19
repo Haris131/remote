@@ -19,11 +19,11 @@ echo "#!/bin/bash
 ssh -o StrictHostKeyChecking=no -R 80:localhost:80 localhost.run > /root/remote.txt
 #screen -d -m-L ssh -o StrictHostKeyChecking=no -R 80:localhost:80 localhost.run
 sleep 1" > /tmp/remot;cd /tmp;chmod +x remot
-screen -dmS remot ./remot; sleep 2;rm -rf remot; sleep 2
+screen -dmS remot ./remot; sleep 2;rm -rf remot; sleep 4
 url=$(grep .run  /root/remote.txt|awk -F " " '{print $1}')
-echo "##############################################"
+echo -e "\e[0m##############################################"
 echo -e "Silahkan Akses $url\n##############################################"
-echo -e "\e[33;1mSelesai.\n";exit
+echo -e "\e[33;1mSelesai.\e[0m\n";exit
 }
 case $1 in
  "setup")
